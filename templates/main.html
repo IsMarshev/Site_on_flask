@@ -1,0 +1,31 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+
+    <div class="side-nav">
+        <a href="{{ url_for('home')}}">Прогнозирование оттока</a>
+        <a href="services">Аналитическая сводка</a>
+        <a href="contact">Инструкция по работе</a>
+        <a href="{{ url_for('about')}}">О нас</a>
+    </div>
+    <div class="main-content">
+        <header>
+            <h1>{{message}}</h1>
+        </header>
+    
+        <footer>
+            <p>&copy; 2023 Simple Website. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.side-nav {
+    height: 100%;
+    width: 15%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    background: linear-gradient(to bottom, rgba(255, 66, 167, 0.8), rgba(70, 206, 255, 0.8));
+    border-radius: 0 15px 15px 0; /* Закругленные края слева */
+    /* Переливающийся розово-желтый градиент с прозрачностью */
+}
+
+.side-nav a {
+    padding: 15px;
+    text-decoration: none;
+    font-size: 24px;
+    color: #000000;
+    display: block;
+    text-align: center; /* Выравнивание текста по центру */
+}
+
+.side-nav a:hover {
+    color: #f1f1f1;
+}
+
+
+
+.main-content {
+    margin-left: 15%;
+    height: 1000px;
+}
+
+header {
+    color: #000000;
+    text-align: center;
+    padding: 80px 0;
+}
+
+section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+}
