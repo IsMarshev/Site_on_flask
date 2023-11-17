@@ -18,7 +18,7 @@
     </div>
     <div class="main-content">
         <header>
-            <h1>{{message}}</h1>
+            <h1>{{ message }}, {{ current_user.username if current_user.is_authenticated else 'Guest' }}</h1>
         </header>
     
         <footer>

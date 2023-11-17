@@ -5,7 +5,6 @@ app_dir = os.path.abspath(os.path.dirname(__file__))
 class BaseConfig:
     SECRET_KEY = "bwfkkano2no214"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-
     ##### настройка Flask-Mail #####
     # MAIL_SERVER = 'smtp.googlemail.com'
     # MAIL_PORT = 587
