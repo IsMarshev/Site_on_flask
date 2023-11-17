@@ -5,11 +5,11 @@ from programm.msg import create_user
 from .model import User
 from app import db
 from .forms import LoginForm
-@pages.route('/')
+@pages.route('/home/')
 def home():
     message = 'hello'
     return render_template('main.html', message =  message)
-@pages.route('/login/', methods=['post', 'get'])
+@pages.route('/', methods=['post', 'get'])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
