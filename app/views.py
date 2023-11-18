@@ -22,6 +22,7 @@ def login():
         flash("Invalid username/password", 'error')
         return redirect(url_for('login'))
     return render_template('login.html', form=form)
+
 @pages.route('/logout/')
 @login_required
 def logout():

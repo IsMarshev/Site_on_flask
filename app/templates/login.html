@@ -1,34 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_login.css') }}">
+    <title>Login Page</title>
 </head>
+
 <body>
-    <div class="container mt-5">
-        <h2>Login</h2>
-        <form method="post" action="{{ url_for('login') }}">
-            {{ form.hidden_tag() }}
-            
-            <div class="form-group">
-                {{ form.username.label(class="form-control-label") }}
-                {{ form.username(class="form-control") }}
+
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form>
+                <h1>Создать Аккаунт</h1>
+                <span>Используй email для регистрации</span>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button>Создать</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <!-- <form>
+                
+                <span>Используй email и пароль для авторизации</span>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button>Войти</button>
+            </form> -->
+                <form method="post" action="{{ url_for('login') }}">
+                    <h1>Войти</h1>
+                    {{ form.hidden_tag() }}
+                    
+                    <div>
+                        {{ form.username.label(class="form-control-label") }}
+                        {{ form.username(class="form-control") }}
+                    </div>
+                    
+                    <div>
+                        {{ form.password.label(class="form-control-label") }}
+                        {{ form.password(type="password", class="form-control") }}
+                    </div>
+                    
+                    <!-- <div class="form-group form-check">
+                        {{ form.remember(class="form-check-input") }}
+                        {{ form.remember.label(class="form-check-label") }}
+                    </div> -->
+                    
+                    <button type="submit">Войти</button>
+                </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>С возвращением!</h1>
+                    <p>Введи данные для входа, что бы использовать все возможности сайта</p>
+                    <button class="hidden" id="login">Войти</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Привет друг!</h1>
+                    <p>Зарегистрируйся, что бы использовать все возможности сайта</p>
+                    <button class="hidden" id="register">Зарегистрироваться</button>
+                </div>
             </div>
-            
-            <div class="form-group">
-                {{ form.password.label(class="form-control-label") }}
-                {{ form.password(type="password", class="form-control") }}
-            </div>
-            
-            <div class="form-group form-check">
-                {{ form.remember(class="form-check-input") }}
-                {{ form.remember.label(class="form-check-label") }}
-            </div>
-            
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
+        </div>
     </div>
+
+    <script src="{{ url_for('static', filename='js/script_login.js') }}"></script>
 </body>
+
 </html>
