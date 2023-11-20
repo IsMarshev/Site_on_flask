@@ -12,13 +12,13 @@
 
     <div class="side-nav">
         <a href="{{ url_for('home')}}">Прогнозирование оттока</a>
-        <a href="services">Аналитическая сводка</a>
+        <a href="{{ url_for('analys')}}">Аналитическая сводка</a>
         <a href="contact">Инструкция по работе</a>
         <a href="{{ url_for('about')}}">О нас</a>
     </div>
     <div class="main-content">
         <header>
-            <h1>{{ message }}, {{ current_user.username if current_user.is_authenticated else 'Guest' }}</h1>
+            <h1>{{ current_user.username if current_user.is_authenticated else 'Guest' }}</h1>
         </header>
     
         <footer>

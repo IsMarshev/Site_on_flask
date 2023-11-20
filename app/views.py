@@ -5,10 +5,23 @@ from programm.msg import create_user
 from .model import User
 from app import db
 from .forms import LoginForm
+import plotly.express as px
+from programm.graphs import create_graph
 @pages.route('/home/')
+@login_required
 def home():
-    message = 'hello'
-    return render_template('main.html', message =  message)
+    return render_template('main.html')
+@pages.route('/analys/')
+@login_required
+def analys():
+    data = {
+    'x': [1, 2, 3, 4, 5],
+    'y': [10, 11, 12, 13, 14]}
+    data2 = {
+    'x': [4, 2, 3, 4, 5],
+    'y': [10, 15, 11, 13, 14]}
+    first_g = create_graph(data)
+    return render_template('analysys.html', plot = first_g, plot2 =create_graph(data2))
 @pages.route('/', methods=['post', 'get'])
 def login():
     if current_user.is_authenticated:
@@ -47,5 +60,6 @@ def delete_cookie():
 
 
 @pages.route('/about')
+@login_required
 def about():
     return render_template('about.html')
