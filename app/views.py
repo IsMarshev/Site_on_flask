@@ -10,7 +10,7 @@ from programm.graphs import create_graph
 @pages.route('/home/')
 @login_required
 def home():
-    return render_template('main.html')
+    return render_template('home.html')
 @pages.route('/analys/')
 @login_required
 def analys():
