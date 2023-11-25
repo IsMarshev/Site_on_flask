@@ -55,7 +55,7 @@ body {
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 280px;
+	width: 220px;
 	height: 100%;
 	background: var(--light);
 	z-index: 2000;
@@ -166,8 +166,8 @@ body {
 /* CONTENT */
 #content {
 	position: relative;
-	width: calc(100% - 280px);
-	left: 280px;
+	width: calc(100% - 220px);
+	left: 220px;
 	transition: .3s ease;
 }
 #sidebar.hide ~ #content {
@@ -272,13 +272,31 @@ body {
 	margin-top: 36px;
 }
 #content main .box-info li {
-	padding: 24px;
+	padding: 14px;
 	background: var(--light);
 	border-radius: 20px;
 	display: flex;
 	align-items: center;
 	grid-gap: 24px;
 }
+
+#content main .gra-box {
+	padding: 14px;
+	background: var(--light);
+	border-radius: 20px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(100%, 100%));
+	grid-template-rows: repeat(auto-fit, minmax(100%, 100%));
+	grid-gap: 24px;
+	margin-bottom: 15px;
+}
+
+#content main .gra-box div {
+
+	min-width: 1fr;
+	max-width: 1200px;
+}
+
 #content main .box-info li .bx {
 	width: 80px;
 	height: 80px;
@@ -301,9 +319,10 @@ body {
 	color: var(--orange);
 }
 #content main .box-info li .text h3 {
-	font-size: 24px;
+	font-size: 22px;
 	font-weight: 600;
 	color: var(--dark);
+	margin-bottom: 20px;
 }
 #content main .box-info li .text p {
 	color: var(--dark);	
@@ -311,7 +330,9 @@ body {
 
 
 
-
+.plot-container {
+    border-radius: 10px;
+}
 
 #content main .table-data {
 	display: flex;

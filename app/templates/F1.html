@@ -25,43 +25,25 @@
 			<li>
 				<a href="{{url_for('home')}}">
 					<i class='bx bxs-dashboard' ></i>
-					<span class="text">Dashboard</span>
+					<span class="text">Начало</span>
 				</a>
 			</li>
-			<li>
+			<li class="active">
 				<a href="{{url_for('F1')}}">
 					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">F1</span>
+					<span class="text">Kлассификация</span>
 				</a>
 			</li>
 			<li>
 				<a href="{{url_for('RMSE')}}">
 					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">RMSE</span>
-				</a>
-			</li>
-			<li>
-				<a href="{{url_for('ROC')}}">
-					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">ROC</span>
+					<span class="text">Регрессия</span>
 				</a>
 			</li>
 			<li>
 				<a href="{{url_for('analys')}}">
 					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">Analytics</span>
-				</a>
-			</li>
-			<li>
-				<a href="{{url_for('Pred')}}">
-					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">Prediction</span>
-				</a>
-			</li>
-			<li class="active">
-				<a href="{{url_for('About')}}">
-					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">About us</span>
+					<span class="text">Аналитика</span>
 				</a>
 			</li>
 		</ul>
@@ -81,33 +63,19 @@
 		<main>
 			<div class="head-title">
 				<div class="left">
-					<h1>About</h1>
+					<h1>Задача классификации</h1>
 				</div>
 			</div>
-
-			<ul class="box-info">
-				<li>
-					<i class='bx bxs-calendar-check' ></i>
-					<span class="text">
-						<h3>1020</h3>
-						<p>New Order</p>
-					</span>
-				</li>
-				<li>
-					<i class='bx bxs-group' ></i>
-					<span class="text">
-						<h3>2834</h3>
-						<p>Visitors</p>
-					</span>
-				</li>
-				<li>
-					<i class='bx bxs-dollar-circle' ></i>
-					<span class="text">
-						<h3>$2543</h3>
-						<p>Total Sales</p>
-					</span>
-				</li>
-			</ul>
+			<div class="gra-box">
+				<div>
+					{{plot|safe}}
+				</div>
+			</div>
+			<div class="gra-box">
+				<div>
+					{{plot2|safe}}
+				</div>
+			</div>
 			
 		</main>
 		<!-- MAIN -->
