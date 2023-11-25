@@ -129,13 +129,33 @@ def ROC():
 
 @pages.route('/analys')
 def analys():
-    data = {
-    'x': [1, 2, 3, 4, 5],
-    'y': [10, 11, 12, 13, 14]}
-    data2 = {
-    'x': [4, 2, 3, 4, 5],
-    'y': [10, 15, 11, 13, 14]}
-    return render_template('analys.html', plot = create_graph(data), plot2 = create_pie())
+    with open("app\my_object_time_1.pickle", 'rb') as file:
+        aggregated_data_cheque_data_1 = pickle.load(file)
+    with open('app\my_object_time_0.pickle', 'rb') as file:
+        aggregated_data_cheque_data_0 = pickle.load(file)
+    
+    with open("app\my_object_1.pickle", 'rb') as file:
+        data_day = pickle.load(file)
+    fig = go.Figure()
+
+    fig.add_trace(go.Scatter(x=aggregated_data_cheque_data_1['date'], y=aggregated_data_cheque_data_1['revenue'], mode='lines+markers', name='Средний чек для 1'))
+
+    fig.add_trace(go.Scatter(x=aggregated_data_cheque_data_0['date'], y=aggregated_data_cheque_data_0['revenue'], mode='lines', name='Средний чек для 0', line=dict(color='red')))
+
+    fig.update_layout(title='График среднего чека',
+                    xaxis_title='Дата',
+                    yaxis_title='Средний чек')
+    
+    fig1 = px.bar(data_day, x='Day', y=['Value_1','Value_0'], color='Day',
+             labels={'Value': 'Значение', 'Day': 'День недели'},
+             title='Столбчатая диаграмма дней для типа пользователя')
+    
+    
+    plot_html = pyo.plot(fig, output_type='div', config={'displayModeBar': False})
+    plot_html2 = pyo.plot(fig1, output_type='div', config={'displayModeBar': False})
+
+
+    return render_template('analys.html', plot=plot_html, plot1=plot_html2)
 
 @pages.route('/Pred')
 def Pred():
